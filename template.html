@@ -1,0 +1,136 @@
+<!-- templates/events_front.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UserOperations</title>
+  <!-- Exemple d'import Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" 
+    rel="stylesheet"
+  >
+  <style>
+    /* Le style global du corps de page */
+    body {
+      margin: 0;
+      padding: 0;
+      /* Dégradé de fond “dark style” */
+      background: linear-gradient(145deg, #111111 0%, #1c1c1c 100%);
+      font-family: 'Share Tech Mono', monospace;
+      color: #d1d1d1;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #1f1f1f;
+      border-bottom: 1px solid #333;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* Style du tableau */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      background-color: #242424;
+      color: #00ffa3; /* Couleur “néon” Web3 */
+      font-weight: normal;
+    }
+
+    td {
+      color: #cccccc;
+    }
+
+    /* Style de la dernière ligne du tableau (pas indispensable) */
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Effet hover sur les lignes du tableau */
+    tbody tr:hover {
+      background-color: #2a2a2a;
+    }
+
+    /* Style du footer */
+    footer {
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      color: #888;
+      border-top: 1px solid #333;
+      background: #1f1f1f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>User Operation Events</h1>
+  </header>
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>userOpHash</th>
+          <th>sender</th>
+          <th>paymaster</th>
+          <th>nonce</th>
+          <th>success</th>
+          <th>actualGasCost</th>
+          <th>actualGasUsed</th>
+          <th>blockNumber</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in events %}
+        <tr>
+          <!-- row = (id, userOpHash, sender, paymaster, nonce, success, actualGasCost, actualGasUsed, blockNumber) -->
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+          <td>{{ row[6] }}</td>
+          <td>{{ row[7] }}</td>
+          <td>{{ row[8] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Powered by Web3 Indexer &middot; 2025
+  </footer>
+</body>
+</html>
